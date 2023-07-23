@@ -30,20 +30,21 @@ const showMessage = (message) => {
 
 const handleClick = (event) => {
     const cellIndex = event.target.dataset.index;
-
+    
     //check who's turn
     if (board[cellIndex] === "" && !checkWin() && !checkDraw()) {
+
       board[cellIndex] = currentPlayer;
       event.target.textContent = currentPlayer;
       currentPlayer = currentPlayer === "X" ? "O" : "X";
       showMessage(`Player ${currentPlayer}'s turn `);
-        
-        //show message who wins
-        if (checkWin()) {
-            showMessage(`Player ${currentPlayer === "X" ? "O" : "X"} wins!`);
-        } else if (checkDraw()) {
-            showMessage("It's a draw!");
-        }
+
+      //show message who wins
+      if (checkWin()) {
+          showMessage(`Player ${currentPlayer === "X" ? "O" : "X"} wins!`);
+      } else if (checkDraw()) {
+          showMessage("It's a draw!");
+      }
     }
 }
 

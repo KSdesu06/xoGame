@@ -44,16 +44,7 @@ body {
 
 }
 
-#resetButton {
-  padding: 20px;
-  margin: 20px;
-  justify-content: center;
-  font-size: large;
-  background-color: #348356;
-  color: whitesmoke;
-}
-
-#backButton {
+.button {
   padding: 20px;
   margin: 20px;
   justify-content: center;
