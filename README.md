@@ -60,13 +60,13 @@ To set up the xo game on your local machine, follow these steps:
 
 Once you complete these steps, you can run the Tic-Tac-Toe program on your computer and enjoy the game!
 
-4. Clone the Repository:
+3. Clone the Repository:
    ```
    git clone https://github.com/KSdesu06/xoGame.git
    cd your folder
    ```
 
-5. Install Dependencies:
+4. Install Dependencies:
    ```
    npm install
    ```
