@@ -79,7 +79,7 @@ go to terminal in your folder.
 then type node server.js
 ```
 
-click file `chooseboad.html` to play the game.
+click file `chooseboard.html` to play the game.
 
 ## Program Design
 The xo game is designed as a web application using HTML, CSS, and JavaScript. The game allows players to select the board size and play the game on the chosen grid.
