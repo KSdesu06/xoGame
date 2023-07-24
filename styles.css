@@ -14,8 +14,8 @@ body {
 }
 
 .cell {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@ body {
   padding: 30px;
   margin: 10px;
   justify-content: center;
-  font-size: larger;
+  font-size: medium;
   background-color: #348356;
   color: whitesmoke;
   text-decoration: none;

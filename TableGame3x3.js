@@ -28,7 +28,47 @@ const showMessage = (message) => {
     messageElement.textContent = message;
 }
 
-const handleClick = (event) => {
+const saveGameToServer = async () => {
+  const winner = checkWin();
+
+  try {
+      const response = await fetch('http://localhost:3000/games', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              position: index,
+              value,
+              winner, 
+              boardSize: 3  
+          })
+      });
+      
+      const result = await response.json();
+      console.log('Game saved:', result);
+  } catch (error) {
+      console.error('Error saving game:', error);
+  }
+};
+
+const saveMoveToServer = async (index, player) => {
+  try {
+    const response = await fetch('http://localhost:3000/move', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ position: index, value: player, boardSize: 3 })
+    });
+    const data = await response.json();
+    console.log('Move saved:', data);
+  } catch (error) {
+    console.error('Error saving move:', error);
+  }
+};
+
+const handleClick = async (event) => {
     const cellIndex = event.target.dataset.index;
     
     //check who's turn
@@ -45,8 +85,34 @@ const handleClick = (event) => {
       } else if (checkDraw()) {
           showMessage("It's a draw!");
       }
+      await saveMoveToServer(cellIndex, currentPlayer === "X" ? "O" : "X");
     }
 }
+
+const getMovesFromServer = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/moves');
+    const moves = await response.json();
+    return moves;
+  } catch (error) {
+    console.error('Error fetching moves:', error);
+    return [];
+  }
+};
+
+const displayMoves = async () => {
+  const moves = await getMovesFromServer();
+  const movesList = document.getElementById('movesList');
+
+  moves.forEach(move => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `Position: ${move.position}, Value: ${move.value}`;
+    movesList.appendChild(listItem);
+  });
+};
+
+document.addEventListener("DOMContentLoaded", displayMoves);
+
 
 const resetGame = () => {
     board = ["", "", "", "", "", "", "", "", ""];
