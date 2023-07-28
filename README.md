@@ -58,7 +58,7 @@ To set up the xo game on your local machine, follow these steps:
    - Find the part where the MongoDB URI is set, e.g., `const MONGO_URI = "YOUR_MONGODB_URI";`
    - Replace "YOUR_MONGODB_URI" with the MongoDB URI you obtained from MongoDB Atlas.
 
-Once you complete these steps, you can run the Tic-Tac-Toe program on your computer and enjoy the game!
+Once you complete these steps, you can run the xo game program on your computer and enjoy the game!
 
 3. Clone the Repository:
    ```
